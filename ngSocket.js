@@ -12,6 +12,11 @@
 'use strict';
 
 angular.module('ngSocket', []).factory('$socket', ['$rootScope',
+    //Check if ocket is undefined
+    if(typeof socket === 'undefined') {
+        var socket = io.connect();
+    }
+    //
     function ($rootScope) {
         var angularCallback = function (callback) {
             return function () {
