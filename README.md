@@ -1,4 +1,4 @@
-# ngSocket
+# ngSocket [![BOWER version](https://badge-me.herokuapp.com/api/bower/chrisenytc/ng-socket.png)](http://badges.enytc.com/for/bower/chrisenytc/ng-socket)
 
 Angular Module for Socket.io
 
