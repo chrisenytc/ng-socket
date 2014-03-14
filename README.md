@@ -20,10 +20,11 @@ Simply download the `ngSocket.js` file and add it to your web application. Just 
 ## Example
 ```html
 <script src="angular.min.js"></script>
+<script src="socket.io.js"></script>
 <script src="ngSocket.js"></script>
 <script>
     var myApp = angular.module('myApp', ['ngSocket']);
-    myApp.controller('MyCtrl', function($scope, $socket) {
+    myApp.controller('MyCtrl', ['$scope', '$socket', function($scope, $socket) {
         // Listening to an event
         $socket.on('someEvent', function(data) {
             $scope.data = data;
@@ -33,7 +34,7 @@ Simply download the `ngSocket.js` file and add it to your web application. Just 
         $scope.raise = function(message) {            
             $socket.emit('otherEvent', message);
         };
-    });
+    }]);
 </script>
 ``` 
 ## Cancelling a subscription automatically on scope destruction
