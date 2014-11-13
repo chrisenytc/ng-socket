@@ -4,8 +4,8 @@ Angular Module for Socket.io
 
 ## Requirements
 
- - AngularJS 1.0.5+
- - Socket.IO 0.9.16
+ - AngularJS 1.3.0+
+ - Socket.IO 1.2.0+
 
 ## Installing
 
@@ -46,3 +46,17 @@ $socket.on('someEvent', $scope, function(data) {
 ... 
 });
 ```
+
+## Changing which URL to connect to
+
+By default, socket.io will connect to the same server that delivered the HTML page that the code is running on.
+If you want to connect to a different server, you can provide a different URL in the config event of your AngularJS
+module:
+
+````javascript
+  angular
+    .module("MyModule", ['ngSocket'])
+    .config(["$socketProvider", function ($socketProvider) {
+      $socketProvider.setUrl("http://localhost:3000");
+    }]);
+````
