@@ -104,6 +104,10 @@
         initializeSocket();
         socket.emit(name, data, angularCallback(callback));
       }
+      
+      function getSocket() {
+        return socket;
+      }
     }
   }
 
