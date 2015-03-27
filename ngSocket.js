@@ -40,7 +40,8 @@
         once: addListenerOnce,
         removeListener: removeListener,
         removeAllListeners: removeAllListeners,
-        emit: emit
+        emit: emit,
+        getSocket: getSocket
       };
 
       return service;
