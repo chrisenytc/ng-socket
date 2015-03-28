@@ -40,7 +40,8 @@
         once: addListenerOnce,
         removeListener: removeListener,
         removeAllListeners: removeAllListeners,
-        emit: emit
+        emit: emit,
+        getSocket: getSocket
       };
 
       return service;
@@ -103,6 +104,10 @@
       function emit(name, data, callback) {
         initializeSocket();
         socket.emit(name, data, angularCallback(callback));
+      }
+      
+      function getSocket() {
+        return socket;
       }
     }
   }
