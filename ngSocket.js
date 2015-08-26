@@ -17,10 +17,12 @@
     .provider('$socket', socketProvider);
 
   function socketProvider() {
-    var url;
+    var url, options = {};
 
     this.setUrl = setUrl;
     this.getUrl = getUrl;
+    this.setOptions = setOptions;
+    this.getOptions = getOptions;
     this.$get = ['$rootScope', socketFactory];
 
     function setUrl(value) {
@@ -29,6 +31,14 @@
 
     function getUrl() {
       return url;
+    }
+
+    function setOptions(value) {
+      options = value;
+    }
+
+    function getOptions() {
+      return options;
     }
 
     function socketFactory($rootScope) {
@@ -51,9 +61,9 @@
         //Check if socket is undefined
         if (typeof socket === 'undefined') {
           if (url !== 'undefined') {
-            socket = io.connect(url);
+            socket = io.connect(url, options);
           } else {
-            socket = io.connect();
+            socket = io.connect(options);
           }
         }
       }
