@@ -60,3 +60,15 @@ module:
       $socketProvider.setUrl("http://localhost:3000");
     }]);
 ````
+
+## Changing which socket options
+
+If you want to send in connect options to socket.io (like changing the path uri), you can pass them in using .setOptions()
+
+````javascript
+  angular
+    .module("MyModule", ['ngSocket'])
+    .config(["$socketProvider", function ($socketProvider) {
+      $socketProvider.setOptions({path: '/other.io'});
+    }]);
+````
