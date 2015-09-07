@@ -101,9 +101,12 @@
         socket.removeAllListeners(name);
       }
 
-      function emit(name, data, callback) {
+      function emit(name) {
         initializeSocket();
-        socket.emit(name, data, angularCallback(callback));
+        var callback = arguments[arguments.length -1];
+        if ("function" === typeof callback)
+          arguments[arguments.length -1] = angularCallback(callback);
+        socket.emit.apply(socket, arguments);
       }
       
       function getSocket() {
